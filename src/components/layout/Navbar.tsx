@@ -47,6 +47,9 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-gray-900">
+              Home
+            </Link>
             <Link href="/products" className="text-gray-700 hover:text-gray-900">
               Products
             </Link>
@@ -116,6 +119,13 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Link
+                href="/"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
               <Link
                 href="/products"
                 className="block px-3 py-2 text-gray-700 hover:text-gray-900"
