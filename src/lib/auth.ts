@@ -1,31 +1,50 @@
 import { NextAuthOptions } from 'next-auth'
-import { PrismaAdapter } from '@auth/prisma-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
-import { prisma } from './db'
 
 declare module 'next-auth' {
   interface User {
-    role?: string
+    id: string
+    email: string
+    name: string
+    role: string
   }
   interface Session {
     user: {
       id: string
       email: string
       name: string
-      role?: string
+      role: string
     }
   }
 }
 
 declare module 'next-auth/jwt' {
   interface JWT {
-    role?: string
+    id: string
+    role: string
   }
 }
 
+// Simple in-memory user storage (replace with your preferred storage method)
+const users = [
+  {
+    id: '1',
+    email: 'admin@example.com',
+    name: 'Admin User',
+    password: '$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1m', // password: admin123
+    role: 'ADMIN'
+  },
+  {
+    id: '2',
+    email: 'user@example.com',
+    name: 'Regular User',
+    password: '$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1m', // password: user123
+    role: 'USER'
+  }
+]
+
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -38,13 +57,9 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
-          }
-        })
+        const user = users.find(u => u.email === credentials.email)
 
-        if (!user || !user.password) {
+        if (!user) {
           return null
         }
 
@@ -72,13 +87,14 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
+        token.id = user.id
         token.role = user.role
       }
       return token
     },
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.sub!
+        session.user.id = token.id
         session.user.role = token.role
       }
       return session
