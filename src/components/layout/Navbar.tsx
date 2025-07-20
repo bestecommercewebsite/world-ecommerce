@@ -106,6 +106,8 @@ export function Navbar() {
             )}
           </div>
 
+          
+
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
