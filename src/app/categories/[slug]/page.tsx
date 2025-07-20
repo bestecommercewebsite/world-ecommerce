@@ -39,7 +39,7 @@ export default function CategoryPage() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const { addToCart } = useCartStore()
+  const { addItem } = useCartStore()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -71,12 +71,11 @@ export default function CategoryPage() {
   }, [slug])
 
   const handleAddToCart = (product: Product) => {
-    addToCart({
+    addItem({
       id: product.id,
       name: product.name,
       price: product.price,
-      image: JSON.parse(product.images)[0] || '',
-      quantity: 1
+      image: JSON.parse(product.images)[0] || ''
     })
   }
 
@@ -228,7 +227,7 @@ export default function CategoryPage() {
                 No Products Found
               </h3>
               <p className="text-gray-500 mb-4">
-                We don't have any products in the {categoryLabel} category yet.
+                We don&apos;t have any products in the {categoryLabel} category yet.
               </p>
               <Link
                 href="/categories"

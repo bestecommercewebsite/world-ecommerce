@@ -29,7 +29,7 @@ export default function CategoriesPage() {
         const products = await response.json()
         
         const counts: Record<string, number> = {}
-        products.forEach((product: any) => {
+        products.forEach((product: { category: string }) => {
           const category = product.category.toLowerCase()
           counts[category] = (counts[category] || 0) + 1
         })
@@ -67,7 +67,7 @@ export default function CategoriesPage() {
             Product Categories
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our wide range of products organized by category. Find exactly what you're looking for with our comprehensive selection.
+            Explore our wide range of products organized by category. Find exactly what you&apos;re looking for with our comprehensive selection.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export default function CategoriesPage() {
                 No Products Available
               </h3>
               <p className="text-gray-500 mb-4">
-                We don't have any products in our categories yet. Check back soon!
+                We don&apos;t have any products in our categories yet. Check back soon!
               </p>
               <Link
                 href="/products"

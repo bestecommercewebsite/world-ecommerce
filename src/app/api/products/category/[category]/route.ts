@@ -3,10 +3,10 @@ import { prisma } from '@/lib/db'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { category: string } }
+  { params }: { params: Promise<{ category: string }> }
 ) {
+  const { category } = await params
   try {
-    const { category } = params
 
     if (!category) {
       return NextResponse.json(
@@ -18,8 +18,7 @@ export async function GET(
     const products = await prisma.product.findMany({
       where: {
         category: {
-          equals: category,
-          mode: 'insensitive' // Case-insensitive search
+          equals: category.toLowerCase()
         },
         isActive: true
       },

@@ -17,23 +17,16 @@ import {
   Gamepad, 
   Book, 
   Shirt, 
-  Footprints,
   Search,
   Heart,
   Eye,
   TrendingUp,
-  Zap,
   Award,
-  CheckCircle,
   Sparkles,
   Gift,
   Tag,
   Users,
-  Globe,
-  ArrowUpRight,
-  Play,
-  ChevronRight,
-  ChevronLeft
+  ArrowUpRight
 } from 'lucide-react'
 import { useCartStore } from '@/lib/store/cart'
 
@@ -51,7 +44,7 @@ export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const { addToCart } = useCartStore()
+  const { addItem } = useCartStore()
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
@@ -80,12 +73,11 @@ export default function Home() {
   }, [])
 
   const handleAddToCart = (product: Product) => {
-    addToCart({
+    addItem({
       id: product.id,
       name: product.name,
       price: product.price,
-      image: JSON.parse(product.images)[0] || '/placeholder-product.jpg',
-      quantity: 1
+      image: JSON.parse(product.images)[0] || '/placeholder-product.jpg'
     })
   }
 
@@ -118,7 +110,7 @@ export default function Home() {
     {
       name: "Michael Chen",
       role: "Regular Customer",
-      content: "Best online shopping experience I've ever had. Highly recommended!",
+      content: "Best online shopping experience I&apos;ve ever had. Highly recommended!",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
     },
@@ -408,7 +400,7 @@ export default function Home() {
               Shop by Category
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Find exactly what you're looking for in our organized categories
+              Find exactly what you&apos;re looking for in our organized categories
             </p>
           </div>
 
@@ -469,7 +461,7 @@ export default function Home() {
                         <Star key={i} className="h-5 w-5 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-700 italic">"{testimonial.content}"</p>
+                    <p className="text-gray-700 italic">&quot;{testimonial.content}&quot;</p>
                   </div>
                 </div>
               ))}

@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useState, useEffect, useMemo } from 'react'
 import { 
   ShoppingBag, 
   Star, 
@@ -13,12 +12,8 @@ import {
   List,
   ChevronDown,
   ChevronUp,
-  ArrowRight,
-  ArrowLeft,
   Tag,
-  TrendingUp,
   Sparkles,
-  Zap,
   Award,
   Clock,
   Truck,
@@ -48,7 +43,7 @@ export default function ProductsPage() {
   const [priceRange, setPriceRange] = useState([0, 1000])
   const { addItem } = useCartStore()
 
-  const categories = [
+  const categories = useMemo(() => [
     { name: 'All Categories', value: 'all', count: 0 },
     { name: 'Electronics', value: 'electronics', count: 0 },
     { name: 'Computers', value: 'computers', count: 0 },
@@ -58,7 +53,7 @@ export default function ProductsPage() {
     { name: 'Gaming', value: 'gaming', count: 0 },
     { name: 'Books', value: 'books', count: 0 },
     { name: 'Clothing', value: 'clothing', count: 0 }
-  ]
+  ], [])
 
   const sortOptions = [
     { name: 'Featured', value: 'featured' },
@@ -93,7 +88,7 @@ export default function ProductsPage() {
     }
 
     fetchProducts()
-  }, [])
+  }, [categories])
 
   useEffect(() => {
     let filtered = products
@@ -183,7 +178,7 @@ export default function ProductsPage() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Explore our curated selection of premium products. From the latest technology 
-              to timeless classics, find exactly what you're looking for.
+              to timeless classics, find exactly what you&apos;re looking for.
             </p>
             
             {/* Enhanced Search Bar */}

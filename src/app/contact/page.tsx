@@ -9,15 +9,12 @@ import {
   Clock, 
   Send, 
   MessageSquare, 
-  Users, 
   Globe,
   ArrowRight,
   ArrowUpRight,
   Sparkles,
   CheckCircle,
   Star,
-  Award,
-  Truck,
   Shield,
   Heart,
   Zap
@@ -154,8 +151,8 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              We're here to help! Get in touch with our friendly team for any questions, 
-              support, or feedback. We'd love to hear from you.
+              We&apos;re here to help! Get in touch with our friendly team for any questions, 
+              support, or feedback. We&apos;d love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -225,7 +222,7 @@ export default function ContactPage() {
                   Get In Touch
                 </h2>
                 <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
@@ -236,7 +233,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
                   <p className="text-gray-600 mb-6">
-                    Thank you for contacting us. We'll get back to you within 24 hours.
+                    Thank you for contacting us. We&apos;ll get back to you within 24 hours.
                   </p>
                   <div className="flex items-center justify-center text-yellow-400">
                     {[...Array(5)].map((_, i) => (

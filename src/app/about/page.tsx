@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+// Remove unused useState import
 import Link from 'next/link'
 import { 
   ShoppingBag, 
-  Truck, 
   Shield, 
   Heart, 
   Users, 
@@ -12,19 +11,16 @@ import {
   Target, 
   Globe,
   Star,
-  CheckCircle,
   Sparkles,
   ArrowRight,
   ArrowUpRight,
   Zap,
-  TrendingUp,
-  Clock,
-  Gift,
-  ArrowLeft
+  Clock
 } from 'lucide-react'
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState('story')
+  // Remove unused state variables
+  // const [activeTab, setActiveTab] = useState('story')
 
   const stats = [
     { number: '50K+', label: 'Happy Customers', icon: Heart, color: 'from-red-500 to-pink-500' },
@@ -49,7 +45,7 @@ export default function AboutPage() {
     {
       icon: Globe,
       title: 'Sustainability',
-      description: 'We\'re committed to eco-friendly practices and reducing our environmental impact.',
+      description: 'We&apos;re committed to eco-friendly practices and reducing our environmental impact.',
       color: 'from-green-500 to-teal-500'
     },
     {
@@ -125,7 +121,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              We're passionate about bringing you the best products and shopping experience. 
+              We&apos;re passionate about bringing you the best products and shopping experience. 
               Our journey started with a simple mission: to make quality products accessible to everyone.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -191,12 +187,12 @@ export default function AboutPage() {
                   and sellers.
                 </p>
                 <p>
-                  We've always believed that technology should make life easier, not more 
-                  complicated. That's why we've focused on creating a platform that's 
+                  We&apos;ve always believed that technology should make life easier, not more 
+                  complicated. That&apos;s why we&apos;ve focused on creating a platform that&apos;s 
                   intuitive, reliable, and enjoyable to use.
                 </p>
                 <p>
-                  Today, we're proud to serve millions of customers worldwide, offering 
+                  Today, we&apos;re proud to serve millions of customers worldwide, offering 
                   everything from the latest technology to everyday essentials, all with 
                   the same commitment to quality and service that we started with.
                 </p>
@@ -326,7 +322,7 @@ export default function AboutPage() {
               The People Behind Our Success
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're a diverse team of professionals passionate about delivering 
+              We&apos;re a diverse team of professionals passionate about delivering 
               exceptional experiences to our customers.
             </p>
           </div>
