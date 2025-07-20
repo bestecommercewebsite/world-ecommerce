@@ -427,8 +427,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      {/* Testimonials Section - Temporarily Hidden */}
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-4">
@@ -441,33 +441,64 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}>
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full md:w-1/3 px-4 flex-shrink-0">
-                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 h-full border border-gray-100">
-                    <div className="flex items-center mb-6">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-16 h-16 rounded-full mr-4 border-4 border-white shadow-lg"
-                      />
-                      <div>
-                        <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-gray-600 text-sm">{testimonial.role}</p>
+            <div className="block md:hidden">
+              <div className="transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                <div className="flex">
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-2">
+                      <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-6 h-full border border-gray-100">
+                        <div className="flex items-center mb-4">
+                          <img
+                            src={testimonial.avatar}
+                            alt={testimonial.name}
+                            className="w-14 h-14 rounded-full mr-3 border-3 border-white shadow-lg"
+                          />
+                          <div>
+                            <h4 className="font-bold text-gray-900 text-sm">{testimonial.name}</h4>
+                            <p className="text-gray-600 text-xs">{testimonial.role}</p>
+                          </div>
+                        </div>
+                        <div className="flex text-yellow-400 mb-3">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-current" />
+                          ))}
+                        </div>
+                        <p className="text-gray-700 italic text-sm leading-relaxed">&quot;{testimonial.content}&quot;</p>
                       </div>
                     </div>
-                    <div className="flex text-yellow-400 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 italic">&quot;{testimonial.content}&quot;</p>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+
+            <div className="hidden md:block">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}>
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="w-1/3 px-4 flex-shrink-0">
+                    <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 h-full border border-gray-100">
+                      <div className="flex items-center mb-6">
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          className="w-16 h-16 rounded-full mr-4 border-4 border-white shadow-lg"
+                        />
+                        <div>
+                          <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                          <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                        </div>
+                      </div>
+                      <div className="flex text-yellow-400 mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 italic">&quot;{testimonial.content}&quot;</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             
-            {/* Navigation Dots */}
             <div className="flex justify-center mt-8 space-x-2">
               {[0, 1, 2].map((index) => (
                 <button
@@ -479,9 +510,26 @@ export default function Home() {
                 />
               ))}
             </div>
+
+            <div className="block md:hidden">
+              <div className="flex justify-between items-center mt-6 px-4">
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev === 0 ? 2 : prev - 1))}
+                  className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+                >
+                  <ArrowRight className="h-5 w-5 text-gray-600 rotate-180" />
+                </button>
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev === 2 ? 0 : prev + 1))}
+                  className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
+                >
+                  <ArrowRight className="h-5 w-5 text-gray-600" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
