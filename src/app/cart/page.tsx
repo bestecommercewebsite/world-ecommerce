@@ -49,9 +49,9 @@ export default function CartPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
-          <p className="text-gray-600">{items.length} item(s) in your cart</p>
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">Shopping Cart</h1>
+          <p className="text-black text-sm sm:text-base">{items.length} item(s) in your cart</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -59,58 +59,133 @@ export default function CartPage() {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-sm">
               {items.map((item) => (
-                <div key={item.id} className="flex items-center p-6 border-b border-gray-200 last:border-b-0">
-                  {/* Product Image */}
-                  <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-gray-400 text-xs">Image</div>
+                <div key={item.id} className="p-4 sm:p-6 border-b border-gray-200 last:border-b-0">
+                  {/* Mobile Layout */}
+                  <div className="block sm:hidden">
+                    <div className="flex items-start space-x-3">
+                      {/* Product Image */}
+                      <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+                        {item.image ? (
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement
+                              target.src = '/placeholder-product.jpg'
+                            }}
+                          />
+                        ) : (
+                          <div className="text-gray-400 text-xs">Image</div>
+                        )}
+                      </div>
+
+                      {/* Product Details */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-black text-sm truncate">{item.name}</h3>
+                        <p className="text-black text-xs">${item.price.toFixed(2)}</p>
+                        
+                        {/* Quantity Controls - Mobile */}
+                        <div className="flex items-center justify-between mt-2">
+                          <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                              className="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                            >
+                              <Minus className="h-3 w-3" />
+                            </button>
+                            <span className="w-8 text-center font-medium text-sm">{item.quantity}</span>
+                            <button
+                              onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                              className="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                            >
+                              <Plus className="h-3 w-3" />
+                            </button>
+                          </div>
+                          <div className="text-right">
+                            <p className="font-semibold text-black text-sm">
+                              ${(item.price * item.quantity).toFixed(2)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Remove Button - Mobile */}
+                      <button
+                        onClick={() => removeItem(item.id)}
+                        className="text-red-500 hover:text-red-700 p-1"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Product Details */}
-                  <div className="ml-4 flex-1">
-                    <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                    <p className="text-gray-600 text-sm">${item.price.toFixed(2)}</p>
-                  </div>
+                  {/* Desktop Layout */}
+                  <div className="hidden sm:flex items-center">
+                    {/* Product Image */}
+                    <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+                      {item.image ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement
+                            target.src = '/placeholder-product.jpg'
+                          }}
+                        />
+                      ) : (
+                        <div className="text-gray-400 text-xs">Image</div>
+                      )}
+                    </div>
 
-                  {/* Quantity Controls */}
-                  <div className="flex items-center space-x-2">
+                    {/* Product Details */}
+                    <div className="ml-4 flex-1">
+                      <h3 className="font-semibold text-black">{item.name}</h3>
+                      <p className="text-black text-sm">${item.price.toFixed(2)}</p>
+                    </div>
+
+                    {/* Quantity Controls */}
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                      >
+                        <Minus className="h-4 w-4" />
+                      </button>
+                      <span className="w-12 text-center font-medium">{item.quantity}</span>
+                      <button
+                        onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </button>
+                    </div>
+
+                    {/* Price */}
+                    <div className="ml-4 text-right">
+                      <p className="font-semibold text-black">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </p>
+                    </div>
+
+                    {/* Remove Button */}
                     <button
-                      onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                      className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                      onClick={() => removeItem(item.id)}
+                      className="ml-4 text-red-500 hover:text-red-700"
                     >
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <span className="w-12 text-center font-medium">{item.quantity}</span>
-                    <button
-                      onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                      className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
-                    >
-                      <Plus className="h-4 w-4" />
+                      <Trash2 className="h-5 w-5" />
                     </button>
                   </div>
-
-                  {/* Price */}
-                  <div className="ml-4 text-right">
-                    <p className="font-semibold text-gray-900">
-                      ${(item.price * item.quantity).toFixed(2)}
-                    </p>
-                  </div>
-
-                  {/* Remove Button */}
-                  <button
-                    onClick={() => removeItem(item.id)}
-                    className="ml-4 text-red-500 hover:text-red-700"
-                  >
-                    <Trash2 className="h-5 w-5" />
-                  </button>
                 </div>
               ))}
             </div>
 
             {/* Continue Shopping */}
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
               <Link
                 href="/products"
-                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
+                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center text-sm sm:text-base"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Continue Shopping
@@ -120,26 +195,26 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 sticky top-8">
+              <h2 className="text-lg font-semibold text-black mb-4">Order Summary</h2>
               
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Subtotal ({items.length} items)</span>
-                  <span className="font-medium">${getTotal().toFixed(2)}</span>
+                  <span className="text-black">Subtotal ({items.length} items)</span>
+                  <span className="font-medium text-black">${getTotal().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Shipping</span>
+                  <span className="text-black">Shipping</span>
                   <span className="font-medium text-green-600">Free</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Tax</span>
-                  <span className="font-medium">${(getTotal() * 0.08).toFixed(2)}</span>
+                  <span className="text-black">Tax</span>
+                  <span className="font-medium text-black">${(getTotal() * 0.08).toFixed(2)}</span>
                 </div>
                 <div className="border-t border-gray-200 pt-3">
                   <div className="flex justify-between text-lg font-semibold">
-                    <span>Total</span>
-                    <span>${(getTotal() * 1.08).toFixed(2)}</span>
+                    <span className="text-black">Total</span>
+                    <span className="text-black">${(getTotal() * 1.08).toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -164,14 +239,14 @@ export default function CartPage() {
               {/* Promo Code */}
               <div className="mt-6">
                 <div className="border-t border-gray-200 pt-4">
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">Promo Code</h3>
+                  <h3 className="text-sm font-medium text-black mb-2">Promo Code</h3>
                   <div className="flex">
                     <input
                       type="text"
                       placeholder="Enter code"
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                     />
-                    <button className="px-4 py-2 bg-gray-600 text-white rounded-r-lg hover:bg-gray-700 transition-colors">
+                    <button className="px-3 sm:px-4 py-2 bg-gray-600 text-white rounded-r-lg hover:bg-gray-700 transition-colors text-sm">
                       Apply
                     </button>
                   </div>

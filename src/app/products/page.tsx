@@ -41,6 +41,8 @@ export default function ProductsPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [showFilters, setShowFilters] = useState(false)
   const [priceRange, setPriceRange] = useState([0, 1000])
+  const [showCartPopup, setShowCartPopup] = useState(false)
+  const [addedProduct, setAddedProduct] = useState<{ name: string; image: string } | null>(null)
   const { addItem } = useCartStore()
 
   const categories = useMemo(() => [
@@ -143,6 +145,19 @@ export default function ProductsPage() {
       price: product.price,
       image: JSON.parse(product.images)[0] || '/placeholder-product.jpg'
     })
+    
+    // Show popup notification
+    setAddedProduct({
+      name: product.name,
+      image: JSON.parse(product.images)[0] || '/placeholder-product.jpg'
+    })
+    setShowCartPopup(true)
+    
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      setShowCartPopup(false)
+      setAddedProduct(null)
+    }, 3000)
   }
 
   const formatPrice = (price: number) => {
@@ -154,6 +169,39 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Cart Added Popup */}
+      {showCartPopup && addedProduct && (
+        <div className="fixed top-4 right-4 z-50 animate-in slide-in-from-right duration-300">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 max-w-sm">
+            <div className="flex items-center space-x-3">
+              <div className="relative">
+                <img
+                  src={addedProduct.image}
+                  alt={addedProduct.name}
+                  className="w-12 h-12 rounded-lg object-cover"
+                />
+                <div className="absolute -top-1 -right-1 bg-green-500 w-5 h-5 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-gray-900 text-sm">Added to Cart!</p>
+                <p className="text-gray-600 text-xs truncate">{addedProduct.name}</p>
+              </div>
+              <button
+                onClick={() => setShowCartPopup(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -190,7 +238,7 @@ export default function ProductsPage() {
                   placeholder="Search for products, brands, and more..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-5 rounded-2xl border-0 text-gray-900 placeholder-gray-500 focus:ring-4 focus:ring-blue-500 focus:ring-opacity-30 focus:outline-none shadow-xl backdrop-blur-sm bg-white bg-opacity-95"
+                  className="w-full pl-12 pr-4 py-5 rounded-2xl border-0 text-black placeholder-gray-500 focus:ring-4 focus:ring-blue-500 focus:ring-opacity-30 focus:outline-none shadow-xl backdrop-blur-sm bg-white bg-opacity-95"
                 />
               </div>
             </div>
