@@ -369,32 +369,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Team Members */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Meet Our Support Team</h3>
-                <div className="space-y-4">
-                  {teamMembers.map((member, index) => (
-                    <div key={index} className="flex items-center space-x-4 bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900">{member.name}</h4>
-                        <p className="text-sm text-gray-600">{member.role}</p>
-                      </div>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="bg-blue-100 p-2 rounded-lg hover:bg-blue-200 transition-colors"
-                      >
-                        <Mail className="h-4 w-4 text-blue-600" />
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>

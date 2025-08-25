@@ -25,7 +25,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-gray-700">
-            Decoratorsupholstery
+            Decorators Upholstery
             </Link>
           </div>
 
