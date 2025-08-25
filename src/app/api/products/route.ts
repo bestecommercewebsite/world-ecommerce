@@ -1,117 +1,116 @@
 import { NextResponse } from 'next/server'
 
-// Static product data (replace with your actual products)
+// Static furniture product data
 const products = [
   {
     id: '1',
-    name: 'iPhone 15 Pro',
-    description: 'The latest iPhone with advanced features and stunning design.',
-    price: 999.99,
+    name: 'Modern L-Shaped Sectional Sofa',
+    description: 'Comfortable and stylish sectional sofa perfect for family gatherings and movie nights.',
+    price: 1299.99,
     images: JSON.stringify([
-      '/products/iphone15.jpeg',
-      '/products/iphone15-2.jpeg'
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600',
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
     ]),
-    category: 'electronics',
-    stock: 50,
+    category: 'living-room',
+    stock: 15,
     isActive: true,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   },
   {
     id: '2',
-    name: 'MacBook Air M2',
-    description: 'Powerful laptop with Apple M2 chip for ultimate performance.',
-    price: 1199.99,
+    name: 'Queen Size Platform Bed Frame',
+    description: 'Elegant platform bed frame with built-in storage and modern design.',
+    price: 899.99,
     images: JSON.stringify([
-      '/products/macbookairm2.jpeg',
-      '/products/macbookairm2-2.jpeg'
+      'https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600'
     ]),
-    category: 'computers',
-    stock: 30,
-    isActive: true,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: '3',
-    name: 'Sony WH-1000XM5',
-    description: 'Premium noise-canceling headphones with exceptional sound quality.',
-    price: 349.99,
-    images: JSON.stringify([
-      '/products/sony-wh-1000xm5.jpeg'
-    ]),
-    category: 'audio',
-    stock: 75,
-    isActive: true,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: '4',
-    name: 'Canon EOS R6',
-    description: 'Professional mirrorless camera for stunning photography.',
-    price: 2499.99,
-    images: JSON.stringify([
-      '/products/canon-eos-r6.jpeg'
-    ]),
-    category: 'cameras',
-    stock: 20,
-    isActive: true,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: '5',
-    name: 'Apple Watch Series 9',
-    description: 'Advanced smartwatch with health monitoring and fitness tracking.',
-    price: 399.99,
-    images: JSON.stringify([
-      '/products/apple-watch-series-9.jpeg'
-    ]),
-    category: 'watches',
-    stock: 100,
-    isActive: true,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  },
-  {
-    id: '6',
-    name: 'PlayStation 5',
-    description: 'Next-generation gaming console with incredible graphics.',
-    price: 499.99,
-    images: JSON.stringify([
-      '/products/playstation-5.jpeg'
-    ]),
-    category: 'gaming',
+    category: 'bedroom',
     stock: 25,
     isActive: true,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   },
   {
-    id: '7',
-    name: 'Nike Air Max 270',
-    description: 'Comfortable running shoes with innovative cushioning technology.',
-    price: 129.99,
+    id: '3',
+    name: 'Solid Wood Dining Table',
+    description: 'Beautiful solid wood dining table that seats 6-8 people comfortably.',
+    price: 799.99,
     images: JSON.stringify([
-      '/products/nike-air-max-270.jpeg'
+      'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'
     ]),
-    category: 'shoes',
-    stock: 200,
+    category: 'dining-room',
+    stock: 20,
     isActive: true,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   },
   {
-    id: '8',
-    name: 'The Art of Computer Programming',
-    description: 'Comprehensive guide to computer programming by Donald Knuth.',
-    price: 89.99,
+    id: '4',
+    name: 'Ergonomic Office Chair',
+    description: 'Premium ergonomic office chair with adjustable features for maximum comfort.',
+    price: 449.99,
     images: JSON.stringify([
-      '/products/the-art-of-computer-programming.jpeg'
+      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600'
     ]),
-    category: 'books',
-    stock: 150,
+    category: 'office',
+    stock: 35,
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: '13',
+    name: 'Floor Lamp with Shelves',
+    description: 'Multi-functional floor lamp with built-in shelves for books and decor.',
+    price: 179.99,
+    images: JSON.stringify([
+      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600'
+    ]),
+    category: 'lighting',
+    stock: 25,
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: '14',
+    name: 'Accent Armchair',
+    description: 'Stylish accent armchair with velvet upholstery and gold-finished legs.',
+    price: 399.99,
+    images: JSON.stringify([
+      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600'
+    ]),
+    category: 'living-room',
+    stock: 20,
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: '15',
+    name: 'Coffee Table with Storage',
+    description: 'Modern coffee table with hidden storage compartment and sleek design.',
+    price: 249.99,
+    images: JSON.stringify([
+      '/products/coffe-table.jpeg'
+    ]),
+    category: 'living-room',
+    stock: 30,
+    isActive: true,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: '16',
+    name: 'Console Table',
+    description: 'Elegant console table perfect for entryways and hallways with decorative details.',
+    price: 189.99,
+    images: JSON.stringify([
+      '/products/console-table.jpeg'
+    ]),
+    category: 'storage',
+    stock: 18,
     isActive: true,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()

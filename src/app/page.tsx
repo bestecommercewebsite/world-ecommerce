@@ -9,14 +9,14 @@ import {
   Truck, 
   Shield, 
   Clock, 
-  Smartphone, 
-  Laptop, 
-  Headphones, 
-  Camera, 
-  Watch, 
-  Gamepad, 
-  Book, 
-  Shirt, 
+  Sofa, 
+  Bed, 
+  Car, 
+  Table, 
+  Lamp, 
+  Archive, 
+  Image, 
+  Square, 
   Search,
   Heart,
   Eye,
@@ -26,7 +26,9 @@ import {
   Gift,
   Tag,
   Users,
-  ArrowUpRight
+  ArrowUpRight,
+  Palette,
+  Zap
 } from 'lucide-react'
 import { useCartStore } from '@/lib/store/cart'
 
@@ -104,43 +106,43 @@ export default function Home() {
   }
 
   const categories = [
-    { name: 'Electronics', slug: 'electronics', count: 150, icon: Smartphone, color: 'bg-gradient-to-br from-blue-500 to-blue-600', bgColor: 'bg-blue-50' },
-    { name: 'Computers', slug: 'computers', count: 100, icon: Laptop, color: 'bg-gradient-to-br from-gray-500 to-gray-600', bgColor: 'bg-gray-50' },
-    { name: 'Audio', slug: 'audio', count: 80, icon: Headphones, color: 'bg-gradient-to-br from-purple-500 to-purple-600', bgColor: 'bg-purple-50' },
-    { name: 'Cameras', slug: 'cameras', count: 60, icon: Camera, color: 'bg-gradient-to-br from-green-500 to-green-600', bgColor: 'bg-green-50' },
-    { name: 'Watches', slug: 'watches', count: 90, icon: Watch, color: 'bg-gradient-to-br from-yellow-500 to-yellow-600', bgColor: 'bg-yellow-50' },
-    { name: 'Gaming', slug: 'gaming', count: 70, icon: Gamepad, color: 'bg-gradient-to-br from-red-500 to-red-600', bgColor: 'bg-red-50' },
-    { name: 'Books', slug: 'books', count: 200, icon: Book, color: 'bg-gradient-to-br from-indigo-500 to-indigo-600', bgColor: 'bg-indigo-50' },
-    { name: 'Clothing', slug: 'clothing', count: 250, icon: Shirt, color: 'bg-gradient-to-br from-pink-500 to-pink-600', bgColor: 'bg-pink-50' }
+    { name: 'Living Room', slug: 'living-room', count: 45, icon: Sofa, color: 'bg-gradient-to-br from-blue-500 to-blue-600', bgColor: 'bg-blue-50' },
+    { name: 'Bedroom', slug: 'bedroom', count: 38, icon: Bed, color: 'bg-gradient-to-br from-purple-500 to-purple-600', bgColor: 'bg-purple-50' },
+    { name: 'Dining Room', slug: 'dining-room', count: 32, icon: Table, color: 'bg-gradient-to-br from-green-500 to-green-600', bgColor: 'bg-green-50' },
+    { name: 'Office', slug: 'office', count: 28, icon: Car, color: 'bg-gradient-to-br from-gray-500 to-gray-600', bgColor: 'bg-gray-50' },
+    { name: 'Lighting', slug: 'lighting', count: 25, icon: Lamp, color: 'bg-gradient-to-br from-yellow-500 to-yellow-600', bgColor: 'bg-yellow-50' },
+    { name: 'Storage', slug: 'storage', count: 42, icon: Archive, color: 'bg-gradient-to-br from-brown-500 to-brown-600', bgColor: 'bg-brown-50' },
+    { name: 'Decor', slug: 'decor', count: 55, icon: Image, color: 'bg-gradient-to-br from-pink-500 to-pink-600', bgColor: 'bg-pink-50' },
+    { name: 'Rugs', slug: 'rugs', count: 30, icon: Square, color: 'bg-gradient-to-br from-orange-500 to-orange-600', bgColor: 'bg-orange-50' }
   ]
 
   const testimonials = [
     {
       name: "Sarah Johnson",
       role: "Verified Buyer",
-      content: "Amazing products and fast delivery! I love the quality and customer service.",
+      content: "Amazing quality furniture! The sofa I bought is exactly as described and delivery was perfect.",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100"
     },
     {
       name: "Michael Chen",
       role: "Regular Customer",
-      content: "Best online shopping experience I&apos;ve ever had. Highly recommended!",
+      content: "Best furniture shopping experience I've ever had. Great prices and excellent customer service!",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
     },
     {
       name: "Emily Rodriguez",
       role: "First-time Buyer",
-      content: "Incredible selection and competitive prices. Will definitely shop again!",
+      content: "Incredible selection of modern furniture. Will definitely shop here again for my home!",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100"
     }
   ]
 
   const stats = [
-    { number: "50K+", label: "Happy Customers", icon: Users },
-    { number: "1000+", label: "Products", icon: ShoppingBag },
+    { number: "25K+", label: "Happy Customers", icon: Users },
+    { number: "500+", label: "Furniture Items", icon: ShoppingBag },
     { number: "24/7", label: "Support", icon: Clock },
     { number: "99%", label: "Satisfaction", icon: Award }
   ]
@@ -180,6 +182,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -193,18 +196,18 @@ export default function Home() {
             <div className="mb-6">
               <span className="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white border-opacity-30">
                 <Sparkles className="h-4 w-4 mr-2 animate-pulse" />
-                New Arrivals Every Week
+                New Furniture Arrivals Weekly
               </span>
             </div>
             <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-              Discover Amazing
+              Transform Your
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300 animate-pulse">
-                Products
+                Living Space
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Shop the latest trends in technology, fashion, and lifestyle. 
-              Quality products at unbeatable prices with lightning-fast delivery.
+              Discover premium furniture that combines style, comfort, and quality. 
+              From modern sofas to elegant dining sets, create your dream home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link
@@ -212,7 +215,7 @@ export default function Home() {
                 className="group bg-white text-blue-600 px-10 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 hover:scale-105"
               >
                 <ShoppingBag className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                Shop Now
+                Shop Furniture
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -230,7 +233,7 @@ export default function Home() {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="text"
-                  placeholder="Search for products, brands, and more..."
+                  placeholder="Search for furniture, styles, and more..."
                   className="w-full pl-12 pr-4 py-5 rounded-2xl border-0 text-black placeholder-gray-500 focus:ring-4 focus:ring-blue-500 focus:ring-opacity-30 focus:outline-none shadow-xl backdrop-blur-sm bg-white bg-opacity-95"
                 />
                 <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
@@ -273,9 +276,9 @@ export default function Home() {
               Why Choose Us
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              We Make Shopping
+              Premium Furniture
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Effortless
+                Experience
               </span>
             </h2>
           </div>
@@ -285,29 +288,29 @@ export default function Home() {
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Truck className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Free Shipping</h3>
-              <p className="text-gray-600">Free delivery on orders over $50 with tracking</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Free Delivery</h3>
+              <p className="text-gray-600">Free delivery on orders over $500 with white-glove service</p>
             </div>
             <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Shield className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Secure Payment</h3>
-              <p className="text-gray-600">100% secure payment with SSL encryption</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Quality Guarantee</h3>
+              <p className="text-gray-600">Premium materials and craftsmanship with lifetime warranty</p>
             </div>
             <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Clock className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">24/7 Support</h3>
-              <p className="text-gray-600">Round the clock customer support via chat</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Assembly Service</h3>
+              <p className="text-gray-600">Professional assembly and setup included with delivery</p>
             </div>
             <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-orange-500 to-orange-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Gift className="h-10 w-10 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Easy Returns</h3>
-              <p className="text-gray-600">30-day money back guarantee on all items</p>
+              <p className="text-gray-600">30-day return policy with free pickup and full refund</p>
             </div>
           </div>
         </div>
@@ -322,17 +325,17 @@ export default function Home() {
               Trending Now
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Featured Products
+              Featured Furniture
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our handpicked selection of premium products that our customers love
+              Discover our handpicked selection of premium furniture that our customers love
             </p>
           </div>
 
           {loading ? (
             <div className="text-center py-20">
               <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto"></div>
-              <p className="mt-6 text-gray-600 text-lg">Loading amazing products...</p>
+              <p className="mt-6 text-gray-600 text-lg">Loading amazing furniture...</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -433,7 +436,7 @@ export default function Home() {
               href="/products"
               className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-2xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 inline-flex items-center shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105"
             >
-              View All Products
+              View All Furniture
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -445,10 +448,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Shop by Category
+              Shop by Room
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Find exactly what you&apos;re looking for in our organized categories
+              Find the perfect furniture for every room in your home
             </p>
           </div>
 
@@ -587,10 +590,10 @@ export default function Home() {
         
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ready to Start Shopping?
+            Ready to Transform Your Home?
           </h2>
           <p className="text-xl mb-10 text-blue-100 max-w-2xl mx-auto">
-            Join thousands of satisfied customers and discover amazing products at unbeatable prices
+            Join thousands of satisfied customers and discover premium furniture at unbeatable prices
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -598,7 +601,7 @@ export default function Home() {
               className="group bg-white text-blue-600 px-12 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105"
             >
               <ShoppingBag className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-              Get Started
+              Start Shopping
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link

@@ -9,8 +9,8 @@ import { Footer } from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ecommerce Store",
-  description: "Modern ecommerce store built with Next.js",
+  title: "Decoratorsupholstery - Premium Upholstery Online",
+  description: "Discover premium furniture for every room. Modern, stylish, and comfortable pieces for your home.",
 };
 
 export default function RootLayout({

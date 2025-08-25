@@ -24,8 +24,8 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-            TheWorldsBests
+            <Link href="/" className="text-2xl font-bold text-gray-700">
+            Decoratorsupholstery
             </Link>
           </div>
 
@@ -35,7 +35,7 @@ export function Navbar() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search products..."
+                  placeholder="Search furniture..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500"
@@ -53,10 +53,10 @@ export function Navbar() {
               Home
             </Link>
             <Link href="/products" className="text-gray-700 hover:text-gray-900">
-              Products
+              Furniture
             </Link>
             <Link href="/categories" className="text-gray-700 hover:text-gray-900">
-              Categories
+              Rooms
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900">
               About

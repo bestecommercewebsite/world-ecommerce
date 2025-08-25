@@ -17,7 +17,15 @@ import {
   Award,
   Clock,
   Truck,
-  Shield
+  Shield,
+  Sofa,
+  Bed,
+  Car,
+  Table,
+  Lamp,
+  Archive,
+  Image,
+  Square
 } from 'lucide-react'
 import { useCartStore } from '@/lib/store/cart'
 
@@ -40,21 +48,21 @@ export default function ProductsPage() {
   const [sortBy, setSortBy] = useState('featured')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [showFilters, setShowFilters] = useState(false)
-  const [priceRange, setPriceRange] = useState([0, 1000])
+  const [priceRange, setPriceRange] = useState([0, 5000])
   const [showCartPopup, setShowCartPopup] = useState(false)
   const [addedProduct, setAddedProduct] = useState<{ name: string; image: string } | null>(null)
   const { addItem } = useCartStore()
 
   const categories = useMemo(() => [
     { name: 'All Categories', value: 'all', count: 0 },
-    { name: 'Electronics', value: 'electronics', count: 0 },
-    { name: 'Computers', value: 'computers', count: 0 },
-    { name: 'Audio', value: 'audio', count: 0 },
-    { name: 'Cameras', value: 'cameras', count: 0 },
-    { name: 'Watches', value: 'watches', count: 0 },
-    { name: 'Gaming', value: 'gaming', count: 0 },
-    { name: 'Books', value: 'books', count: 0 },
-    { name: 'Clothing', value: 'clothing', count: 0 }
+    { name: 'Living Room', value: 'living-room', count: 0 },
+    { name: 'Bedroom', value: 'bedroom', count: 0 },
+    { name: 'Dining Room', value: 'dining-room', count: 0 },
+    { name: 'Office', value: 'office', count: 0 },
+    { name: 'Lighting', value: 'lighting', count: 0 },
+    { name: 'Storage', value: 'storage', count: 0 },
+    { name: 'Decor', value: 'decor', count: 0 },
+    { name: 'Rugs', value: 'rugs', count: 0 }
   ], [])
 
   const sortOptions = [
@@ -202,6 +210,7 @@ export default function ProductsPage() {
           </div>
         </div>
       )}
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -215,18 +224,18 @@ export default function ProductsPage() {
             <div className="mb-6">
               <span className="inline-flex items-center px-6 py-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white border-opacity-30">
                 <Sparkles className="h-4 w-4 mr-2 animate-pulse" />
-                Discover Amazing Products
+                Premium Furniture Collection
               </span>
             </div>
             <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-              Our Product
+              Our Furniture
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300 animate-pulse">
                 Collection
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Explore our curated selection of premium products. From the latest technology 
-              to timeless classics, find exactly what you&apos;re looking for.
+              Explore our curated selection of premium furniture. From modern sofas to elegant dining sets, 
+              find exactly what you need to transform your living space.
             </p>
             
             {/* Enhanced Search Bar */}
@@ -235,7 +244,7 @@ export default function ProductsPage() {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="text"
-                  placeholder="Search for products, brands, and more..."
+                  placeholder="Search for furniture, styles, and more..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-12 pr-4 py-5 rounded-2xl border-0 text-black placeholder-gray-500 focus:ring-4 focus:ring-blue-500 focus:ring-opacity-30 focus:outline-none shadow-xl backdrop-blur-sm bg-white bg-opacity-95"
@@ -247,7 +256,7 @@ export default function ProductsPage() {
             <div className="flex flex-wrap justify-center gap-8 text-blue-100">
               <div className="flex items-center">
                 <ShoppingBag className="h-5 w-5 mr-2" />
-                <span className="font-semibold">{products.length} Products</span>
+                <span className="font-semibold">{products.length} Furniture Items</span>
               </div>
               <div className="flex items-center">
                 <Award className="h-5 w-5 mr-2" />
@@ -255,7 +264,7 @@ export default function ProductsPage() {
               </div>
               <div className="flex items-center">
                 <Truck className="h-5 w-5 mr-2" />
-                <span className="font-semibold">Free Shipping</span>
+                <span className="font-semibold">Free Delivery</span>
               </div>
             </div>
           </div>
@@ -270,7 +279,7 @@ export default function ProductsPage() {
             <div className="flex items-center justify-between lg:justify-start gap-4">
               <div className="text-gray-600">
                 Showing <span className="font-semibold text-gray-900">{filteredProducts.length}</span> of{' '}
-                <span className="font-semibold text-gray-900">{products.length}</span> products
+                <span className="font-semibold text-gray-900">{products.length}</span> furniture items
               </div>
               
               {/* View Mode Toggle */}
@@ -334,7 +343,7 @@ export default function ProductsPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Category Filter */}
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Category</h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">Room Category</h3>
                   <div className="space-y-2">
                     {categories.map((category) => (
                       <label key={category.value} className="flex items-center cursor-pointer">
@@ -373,7 +382,7 @@ export default function ProductsPage() {
                     <input
                       type="range"
                       min="0"
-                      max="1000"
+                      max="5000"
                       value={priceRange[1]}
                       onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
                       className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
@@ -389,7 +398,7 @@ export default function ProductsPage() {
                       onClick={() => {
                         setSearchTerm('')
                         setSelectedCategory('all')
-                        setPriceRange([0, 1000])
+                        setPriceRange([0, 5000])
                         setSortBy('featured')
                       }}
                       className="w-full text-left px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
@@ -397,16 +406,22 @@ export default function ProductsPage() {
                       Clear All Filters
                     </button>
                     <button
-                      onClick={() => setPriceRange([0, 100])}
+                      onClick={() => setPriceRange([0, 500])}
                       className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
                     >
-                      Under $100
+                      Under $500
                     </button>
                     <button
-                      onClick={() => setPriceRange([100, 500])}
+                      onClick={() => setPriceRange([500, 1500])}
                       className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
                     >
-                      $100 - $500
+                      $500 - $1,500
+                    </button>
+                    <button
+                      onClick={() => setPriceRange([1500, 5000])}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                    >
+                      $1,500 - $5,000
                     </button>
                   </div>
                 </div>
@@ -422,18 +437,18 @@ export default function ProductsPage() {
           {loading ? (
             <div className="text-center py-20">
               <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto"></div>
-              <p className="mt-6 text-gray-600 text-lg">Loading amazing products...</p>
+              <p className="mt-6 text-gray-600 text-lg">Loading amazing furniture...</p>
             </div>
           ) : filteredProducts.length === 0 ? (
             <div className="text-center py-20">
               <Search className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No furniture found</h3>
               <p className="text-gray-600 mb-6">Try adjusting your search or filter criteria</p>
               <button
                 onClick={() => {
                   setSearchTerm('')
                   setSelectedCategory('all')
-                  setPriceRange([0, 1000])
+                  setPriceRange([0, 5000])
                   setSortBy('featured')
                 }}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
@@ -632,7 +647,7 @@ export default function ProductsPage() {
               Why Shop With Us
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Premium Shopping Experience
+              Premium Furniture Experience
             </h2>
           </div>
           
@@ -641,29 +656,29 @@ export default function ProductsPage() {
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Truck className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Free Shipping</h3>
-              <p className="text-gray-600">Free delivery on orders over $50 with tracking</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Free Delivery</h3>
+              <p className="text-gray-600">Free delivery on orders over $500 with white-glove service</p>
             </div>
             <div className="group bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Shield className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Secure Payment</h3>
-              <p className="text-gray-600">100% secure payment with SSL encryption</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Quality Guarantee</h3>
+              <p className="text-gray-600">Premium materials and craftsmanship with lifetime warranty</p>
             </div>
             <div className="group bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Clock className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">24/7 Support</h3>
-              <p className="text-gray-600">Round the clock customer support via chat</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Assembly Service</h3>
+              <p className="text-gray-600">Professional assembly and setup included with delivery</p>
             </div>
             <div className="group bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               <div className="bg-gradient-to-br from-orange-500 to-orange-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Award className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Quality Guarantee</h3>
-              <p className="text-gray-600">30-day money back guarantee on all items</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Easy Returns</h3>
+              <p className="text-gray-600">30-day return policy with free pickup and full refund</p>
             </div>
           </div>
         </div>

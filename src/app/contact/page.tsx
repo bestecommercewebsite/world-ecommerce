@@ -59,28 +59,28 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['support@company.com', 'sales@company.com'],
+      details: ['Campbellgary291@gmail.com'],
       color: 'from-blue-500 to-blue-600',
       action: 'mailto:support@company.com'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
+      details: ['+1 (779-275-0748)'],
       color: 'from-green-500 to-green-600',
-      action: 'tel:+15551234567'
+      action: 'tel:+17992750748'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['123 Commerce St', 'New York, NY 10001'],
+      details: ['5482 Trailwood CT Joelton ,TN 37080'],
       color: 'from-purple-500 to-purple-600',
       action: '#'
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: ['Mon-Fri: 9AM-6PM', 'Sat-Sun: 10AM-4PM'],
+      details: ['Mon-Fri: 9AM-6PM'],
       color: 'from-orange-500 to-orange-600',
       action: '#'
     }

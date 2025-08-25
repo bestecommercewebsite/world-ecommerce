@@ -2,20 +2,18 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ShoppingBag, Smartphone, Laptop, Headphones, Camera, Watch, Gamepad, Book, Shirt, Footprints } from 'lucide-react'
+import { Sofa, Bed, Table, Car, Lamp, Archive, Image, Square, ShoppingBag } from 'lucide-react'
 
 // Define available categories with their icons
 const categories = [
-  { name: 'electronics', label: 'Electronics', icon: Smartphone, color: 'bg-blue-500' },
-  { name: 'computers', label: 'Computers & Laptops', icon: Laptop, color: 'bg-gray-500' },
-  { name: 'audio', label: 'Audio & Headphones', icon: Headphones, color: 'bg-purple-500' },
-  { name: 'cameras', label: 'Cameras & Photography', icon: Camera, color: 'bg-green-500' },
-  { name: 'watches', label: 'Watches & Jewelry', icon: Watch, color: 'bg-yellow-500' },
-  { name: 'gaming', label: 'Gaming', icon: Gamepad, color: 'bg-red-500' },
-  { name: 'books', label: 'Books & Media', icon: Book, color: 'bg-indigo-500' },
-  { name: 'clothing', label: 'Clothing & Fashion', icon: Shirt, color: 'bg-pink-500' },
-  { name: 'shoes', label: 'Shoes & Footwear', icon: Footprints, color: 'bg-orange-500' },
-  { name: 'accessories', label: 'Accessories', icon: ShoppingBag, color: 'bg-teal-500' },
+  { name: 'living-room', label: 'Living Room', icon: Sofa, color: 'bg-blue-500' },
+  { name: 'bedroom', label: 'Bedroom', icon: Bed, color: 'bg-purple-500' },
+  { name: 'dining-room', label: 'Dining Room', icon: Table, color: 'bg-green-500' },
+  { name: 'office', label: 'Office', icon: Car, color: 'bg-gray-500' },
+  { name: 'lighting', label: 'Lighting', icon: Lamp, color: 'bg-yellow-500' },
+  { name: 'storage', label: 'Storage', icon: Archive, color: 'bg-brown-500' },
+  { name: 'decor', label: 'Decor', icon: Image, color: 'bg-pink-500' },
+  { name: 'rugs', label: 'Rugs', icon: Square, color: 'bg-orange-500' },
 ]
 
 export default function CategoriesPage() {
@@ -64,10 +62,10 @@ export default function CategoriesPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Product Categories
+            Room Categories
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our wide range of products organized by category. Find exactly what you&apos;re looking for with our comprehensive selection.
+            Explore our furniture organized by room. Find the perfect pieces for every space in your home with our comprehensive selection.
           </p>
         </div>
 
@@ -105,16 +103,16 @@ export default function CategoriesPage() {
             <div className="bg-white rounded-lg shadow-md p-8 max-w-md mx-auto">
               <ShoppingBag className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
-                No Products Available
+                No Furniture Available
               </h3>
               <p className="text-gray-500 mb-4">
-                We don&apos;t have any products in our categories yet. Check back soon!
+                We don&apos;t have any furniture in our categories yet. Check back soon!
               </p>
               <Link
                 href="/products"
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
-                View All Products
+                View All Furniture
               </Link>
             </div>
           </div>

@@ -23,77 +23,63 @@ export default function AboutPage() {
   // const [activeTab, setActiveTab] = useState('story')
 
   const stats = [
-    { number: '50K+', label: 'Happy Customers', icon: Heart, color: 'from-red-500 to-pink-500' },
-    { number: '1000+', label: 'Products', icon: ShoppingBag, color: 'from-blue-500 to-purple-500' },
-    { number: '100+', label: 'Team Members', icon: Users, color: 'from-green-500 to-teal-500' },
-    { number: '5+', label: 'Years Experience', icon: Award, color: 'from-yellow-500 to-orange-500' },
+    { number: '25K+', label: 'Happy Homes', icon: Heart, color: 'from-red-500 to-pink-500' },
+    { number: '500+', label: 'Furniture Pieces', icon: ShoppingBag, color: 'from-blue-500 to-purple-500' },
+    { number: '50+', label: 'Design Experts', icon: Users, color: 'from-green-500 to-teal-500' },
+    { number: '8+', label: 'Years Experience', icon: Award, color: 'from-yellow-500 to-orange-500' },
   ]
 
   const values = [
     {
       icon: Shield,
-      title: 'Quality Assurance',
-      description: 'We ensure every product meets the highest quality standards before reaching our customers.',
+      title: 'Premium Quality',
+      description: 'We ensure every piece of furniture meets the highest craftsmanship standards before reaching your home.',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: Heart,
-      title: 'Customer First',
-      description: 'Your satisfaction is our top priority. We go above and beyond to exceed your expectations.',
+      title: 'Home-Focused',
+      description: 'Your home is our priority. We help you create beautiful, comfortable spaces that reflect your style.',
       color: 'from-red-500 to-pink-500'
     },
     {
       icon: Globe,
-      title: 'Sustainability',
-      description: 'We&apos;re committed to eco-friendly practices and reducing our environmental impact.',
+      title: 'Sustainable Design',
+      description: 'We&apos;re committed to eco-friendly materials and sustainable furniture manufacturing practices.',
       color: 'from-green-500 to-teal-500'
     },
     {
       icon: Target,
-      title: 'Innovation',
-      description: 'Constantly evolving and improving to bring you the latest and greatest products.',
+      title: 'Design Excellence',
+      description: 'Constantly evolving our designs to bring you the latest trends in furniture and home decor.',
       color: 'from-purple-500 to-indigo-500'
     }
   ]
 
   const team = [
     {
-      name: 'Sarah Johnson',
-      role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300',
-      bio: 'Passionate about creating exceptional shopping experiences.',
-      social: { linkedin: '#', twitter: '#', email: 'sarah@company.com' }
-    },
-    {
-      name: 'Michael Chen',
-      role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-      bio: 'Leading our technology innovation and digital transformation.',
-      social: { linkedin: '#', twitter: '#', email: 'michael@company.com' }
-    },
-    {
       name: 'Emily Rodriguez',
-      role: 'Head of Design',
+      role: 'Interior Design Director',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300',
-      bio: 'Creating beautiful and intuitive user experiences.',
-      social: { linkedin: '#', twitter: '#', email: 'emily@company.com' }
+      bio: 'Creating stunning interior design concepts and furniture collections.',
+      social: { linkedin: '#', twitter: '#', email: 'emily@furniturestore.com' }
     },
     {
       name: 'David Kim',
       role: 'Operations Manager',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
-      bio: 'Ensuring smooth operations and excellent customer service.',
-      social: { linkedin: '#', twitter: '#', email: 'david@company.com' }
+      bio: 'Ensuring smooth furniture delivery and excellent customer service.',
+      social: { linkedin: '#', twitter: '#', email: 'david@furniturestore.com' }
     }
   ]
 
   const milestones = [
-    { year: '2019', title: 'Company Founded', description: 'Started with a vision to revolutionize online shopping' },
-    { year: '2020', title: 'First 10K Customers', description: 'Reached our first major milestone with 10,000 happy customers' },
-    { year: '2021', title: 'Mobile App Launch', description: 'Launched our mobile app for better shopping experience' },
-    { year: '2022', title: 'International Expansion', description: 'Expanded to serve customers worldwide' },
-    { year: '2023', title: 'AI Integration', description: 'Integrated AI-powered recommendations and search' },
-    { year: '2024', title: 'Future Vision', description: 'Continuing to innovate and serve our growing community' }
+    { year: '2016', title: 'FurnitureStore Founded', description: 'Started with a vision to transform homes through beautiful furniture' },
+    { year: '2018', title: 'First 5K Homes', description: 'Reached our first major milestone with 5,000 happy homes furnished' },
+    { year: '2020', title: 'Design Studio Launch', description: 'Launched our interior design consultation services' },
+    { year: '2022', title: 'Premium Collection', description: 'Expanded to offer premium furniture collections nationwide' },
+    { year: '2023', title: 'Sustainable Line', description: 'Introduced our eco-friendly sustainable furniture line' },
+    { year: '2024', title: 'Future Vision', description: 'Continuing to innovate and create beautiful homes across the country' }
   ]
 
   return (
@@ -121,8 +107,8 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              We&apos;re passionate about bringing you the best products and shopping experience. 
-              Our journey started with a simple mission: to make quality products accessible to everyone.
+              We&apos;re passionate about bringing you the best furniture and home design experience. 
+              Our journey started with a simple mission: to make beautiful, quality furniture accessible to every home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -181,20 +167,19 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2019, our company began with a simple vision: to create an online 
-                  shopping experience that puts customers first. What started as a small team 
-                  of passionate individuals has grown into a thriving community of shoppers 
-                  and sellers.
+                  Founded in 2016, FurnitureStore began with a simple vision: to create beautiful 
+                  homes through exceptional furniture. What started as a small team of passionate 
+                  designers has grown into a thriving community of homeowners and design enthusiasts.
                 </p>
                 <p>
-                  We&apos;ve always believed that technology should make life easier, not more 
-                  complicated. That&apos;s why we&apos;ve focused on creating a platform that&apos;s 
-                  intuitive, reliable, and enjoyable to use.
+                  We&apos;ve always believed that furniture should make your home more beautiful and 
+                  comfortable. That&apos;s why we&apos;ve focused on creating pieces that are 
+                  both stylish and functional, designed to last for generations.
                 </p>
                 <p>
-                  Today, we&apos;re proud to serve millions of customers worldwide, offering 
-                  everything from the latest technology to everyday essentials, all with 
-                  the same commitment to quality and service that we started with.
+                  Today, we&apos;re proud to serve thousands of homes nationwide, offering 
+                  everything from modern sofas to elegant dining sets, all with 
+                  the same commitment to quality craftsmanship and design excellence that we started with.
                 </p>
               </div>
               <div className="flex items-center mt-8 space-x-4">
@@ -205,7 +190,7 @@ export default function AboutPage() {
                   <Star className="h-6 w-6 text-yellow-400 fill-current" />
                   <Star className="h-6 w-6 text-yellow-400 fill-current" />
                 </div>
-                <span className="text-gray-600 font-medium">Trusted by 50,000+ customers</span>
+                <span className="text-gray-600 font-medium">Trusted by 25,000+ homeowners</span>
               </div>
             </div>
             <div className="relative">
@@ -310,66 +295,41 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-4">
-              <Users className="h-4 w-4 mr-2" />
-              Meet Our Team
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              The People Behind Our Success
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We&apos;re a diverse team of professionals passionate about delivering 
-              exceptional experiences to our customers.
-            </p>
-          </div>
+             {/* Team Section */}
+       <section className="py-20 bg-white">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-16">
+             <span className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-4">
+               <Users className="h-4 w-4 mr-2" />
+               Meet Our Team
+             </span>
+             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+               The People Behind Our Success
+             </h2>
+             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+               We&apos;re a diverse team of professionals passionate about delivering 
+               exceptional experiences to our customers.
+             </p>
+           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="group bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border border-gray-100">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
-                  <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
-                  
-                  {/* Social Links */}
-                  <div className="flex space-x-3">
-                    <a href={member.social.linkedin} className="text-gray-400 hover:text-blue-600 transition-colors">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"/>
-                      </svg>
-                    </a>
-                    <a href={member.social.twitter} className="text-gray-400 hover:text-blue-400 transition-colors">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
-                      </svg>
-                    </a>
-                    <a href={`mailto:${member.social.email}`} className="text-gray-400 hover:text-red-500 transition-colors">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+           {/* CEO Section */}
+           <div className="text-center mb-16">
+             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
+               <div className="bg-gradient-to-br from-blue-600 to-purple-600 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+                 <Users className="h-12 w-12 text-white" />
+               </div>
+               <h3 className="text-3xl font-bold text-gray-900 mb-2">Gary W Campbell</h3>
+               <p className="text-xl text-blue-600 font-semibold mb-4">CEO & Founder</p>
+               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                 Passionate about creating beautiful homes through exceptional furniture. 
+                 Leading our mission to transform spaces and lives through quality design.
+               </p>
+             </div>
+           </div>
+
+           
+         </div>
+       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
